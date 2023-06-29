@@ -10,3 +10,30 @@ ion-avatar {
 .character-image {
   border-radius: 1rem;
 }
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: #3a58748d;
+  color: #2489e7;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+  background-color: #2489e7;
+}
+
+.badge-container {
+  display: flex;
+  align-items: center;
+}
+
+
+.list-container {
+  border-radius: 1rem;
+}

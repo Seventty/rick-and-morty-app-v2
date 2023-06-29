@@ -26,56 +26,66 @@
               <ion-card-content>
                 <ion-grid>
                   <ion-row>
-                    <ion-col sizeMd="6" sizeXl="6" size="12">Name</ion-col>
-                    <ion-col sizeMd="6" sizeXl="6" size="12">Gender</ion-col>
-                    <ion-col sizeMd="6" sizeXl="6" size="12">First view</ion-col>
-                    <ion-col sizeMd="6" sizeXl="6" size="12">Last view</ion-col>
-                    <ion-col sizeMd="6" sizeXl="6" size="12">Specie</ion-col>
-                    <ion-col sizeMd="6" sizeXl="6" size="12">Status</ion-col>
+                    <ion-col sizeMd="6" sizeXl="6" size="12">
+                      <p><strong>Name</strong> {{character?.name}}</p>
+                    </ion-col>
+                    <ion-col sizeMd="6" sizeXl="6" size="12">
+                      <div class="badge-container">
+                        <p><strong>Gender: </strong></p>
+                        <ion-badge class="badge-pill" color="light">
+                          <div class="circle"></div>
+                          Gender
+                        </ion-badge>
+                      </div>
+                    </ion-col>
+                    <ion-col sizeMd="6" sizeXl="6" size="12">
+                      <p><strong>First View</strong> {{character?.origin.name}}</p>
+                    </ion-col>
+                    <ion-col sizeMd="6" sizeXl="6" size="12">
+                      <p><strong>Last View</strong> {{character?.location.name}}</p>
+                    </ion-col>
+                    <ion-col sizeMd="6" sizeXl="6" size="12">
+                      <div class="badge-container">
+                        <p><strong>Status: </strong></p>
+                        <ion-badge class="badge-pill" color="light">
+                          <div class="circle"></div>
+                          Status
+                        </ion-badge>
+                      </div>
+                    </ion-col>
+                    <ion-col sizeMd="6" sizeXl="6" size="12">
+                      <p><strong>Specie:</strong> {{character?.species}}</p>
+                    </ion-col>
                   </ion-row>
                 </ion-grid>
               </ion-card-content>
+
+
             </ion-card>
 
             <ion-card color="light">
               <ion-card-header>
                 <ion-card-title>Episode List</ion-card-title>
               </ion-card-header>
+
               <ion-card-content>
-                <ion-list>
-                  <ion-item>
-                    <ion-thumbnail slot="start">
-                      <img alt="Silhouette of mountains"
-                        src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                    </ion-thumbnail>
-                    <ion-label>Item</ion-label>
+                <ion-list class="list-container">
+                  <ion-item *ngFor="let episode of characterEpisodes; let index">
+                    <ion-label>
+                      <p><strong>Name:</strong> {{ episode.name }}</p>
+                      <p><strong>Episode:</strong> {{ episode.episode }}</p>
+                      <p><strong>Air Date:</strong> {{ episode.air_date }}</p>
+                    </ion-label>
                   </ion-item>
 
-                  <ion-item>
-                    <ion-thumbnail slot="start">
-                      <img alt="Silhouette of mountains"
-                        src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                    </ion-thumbnail>
-                    <ion-label>Item</ion-label>
-                  </ion-item>
-
-                  <ion-item>
-                    <ion-thumbnail slot="start">
-                      <img alt="Silhouette of mountains"
-                        src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                    </ion-thumbnail>
-                    <ion-label>Item</ion-label>
-                  </ion-item>
-
-                  <ion-item lines="none">
-                    <ion-thumbnail slot="start">
-                      <img alt="Silhouette of mountains"
-                        src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-                    </ion-thumbnail>
-                    <ion-label>Item</ion-label>
-                  </ion-item>
                 </ion-list>
+                <!--
+                <ion-infinite-scroll threshold="25%" position="bottom" (ionInfinite)="getEpisode(episode)">
+                  <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading more characters...">
+                  </ion-infinite-scroll-content>
+                </ion-infinite-scroll> -->
               </ion-card-content>
+
             </ion-card>
           </ion-card-content>
         </ion-card>

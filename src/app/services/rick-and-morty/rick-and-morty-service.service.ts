@@ -16,4 +16,8 @@ export class RickAndMortyServiceService {
   getCharacterById(id: string){
     return this.httpClient.get(environment.baseUrl + environment.characterUrl + id);
   }
+
+  getEpisode(episode: string){
+    return this.httpClient.get(episode);
+  }
 }

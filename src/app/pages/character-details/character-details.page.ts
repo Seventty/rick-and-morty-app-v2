@@ -11,13 +11,14 @@ export class CharacterDetailsPage implements OnInit {
 
   characterId: string = ''
   character: any;
+  characterEpisodes: Array<any> = [];
   constructor(private activatedRoute: ActivatedRoute, private rickAndMortyService: RickAndMortyServiceService) { }
 
-  getCharacter(){
+  getCharacter() {
     this.rickAndMortyService.getCharacterById(this.characterId).subscribe({
       next: (res: any) => {
         this.character = res;
-        console.log(this.character)
+        this.getEpisode();
       },
       error: (err: any) => {
         console.log(err)
@@ -27,6 +28,29 @@ export class CharacterDetailsPage implements OnInit {
 
   ionViewWillEnter() {
     this.getCharacter();
+  }
+
+  getEpisode() {
+    this.character.episode.forEach((episode: any) => {
+      this.rickAndMortyService.getEpisode(episode).subscribe({
+        next: (res: any) => {
+          this.characterEpisodes.push(res);
+          console.log(res);
+        },
+        error: (err: any) => {
+          console.log(err)
+        },
+      })
+    });
+    /* this.rickAndMortyService.getEpisode(episode).subscribe({
+      next: (res: any) => {
+        this.characterEpisodes.push(res.results)
+        console.log(this.characterEpisodes)
+      },
+      error: (err: any) => {
+        console.log(err)
+      },
+    }) */
   }
   ngOnInit() {
     this.characterId = this.activatedRoute.snapshot.paramMap.get('id') as string
