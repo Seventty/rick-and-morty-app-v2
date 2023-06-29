@@ -9,7 +9,11 @@ export class RickAndMortyServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCharacter(param: any){
-    return this.httpClient.get<string>(environment.baseUrl+environment.characterUrl);
+  getCharacter(params: any) {
+    return this.httpClient.get(environment.baseUrl + environment.characterUrl, { params });
+  }
+
+  getCharacterById(id: string){
+    return this.httpClient.get(environment.baseUrl + environment.characterUrl + id);
   }
 }

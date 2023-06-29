@@ -1,0 +1,18 @@
+#fit-image {
+  padding: 10px;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.character-card{
+  cursor: pointer;
+  &:hover {
+  border: 1px solid #00FF00;
+  box-shadow: 0 0 10px 2px #00ff00;
+  transition: 0.2s ease-in-out;
+  }
+}
+
+.character-name-text {
+  font-size: 20px;
+}
