@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Back to character's list</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeLg="6" sizeXl="6" offsetLg="3" offsetXl="3" class="ion-padding">
+        <ion-card class="ion-padding-top">
+          <ion-card-header class="ion-text-center">
+            <ion-card-title>Search filter</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col sizeMd="6" sizeXl="6" size="12" class="ion-padding">
+                    <ion-card-subtitle class="ion-padding-bottom">By Gender</ion-card-subtitle>
+                    <ion-radio-group [allowEmptySelection]="true">
+                      <ion-radio labelPlacement="end" value="male" color="success">Male</ion-radio><br />
+                      <ion-radio labelPlacement="end" value="female" color="success">Female</ion-radio><br />
+                      <ion-radio labelPlacement="end" value="unknown" color="success">Unknown</ion-radio><br />
+                      <ion-radio labelPlacement="end" value="genderless" color="success">Genderless</ion-radio><br />
+                    </ion-radio-group>
+                  </ion-col>
+                  <ion-col sizeMd="6" sizeXl="6" size="12" class="ion-padding">
+                    <ion-card-subtitle class="ion-padding-bottom">By Specie</ion-card-subtitle>
+                    <ion-radio-group [allowEmptySelection]="true">
+                      <ion-radio labelPlacement="end" value="human" color="success">Human</ion-radio><br />
+                      <ion-radio labelPlacement="end" value="female" color="success">Alien</ion-radio><br />
+                      <ion-radio labelPlacement="end" value="animal" color="success">Animal</ion-radio><br />
+                      <ion-radio labelPlacement="end" value="unknown" color="success">Unknown</ion-radio><br />
+                    </ion-radio-group>
+                  </ion-col>
+                  <ion-col sizeMd="6" sizeXl="6" size="12" class="ion-padding">
+                    <ion-card-subtitle class="ion-padding-bottom">By Status</ion-card-subtitle>
+                    <ion-radio-group [allowEmptySelection]="true">
+                      <ion-radio labelPlacement="end" value="alive" color="success">Alive</ion-radio><br />
+                      <ion-radio labelPlacement="end" value="dead" color="success">Dead</ion-radio><br />
+                      <ion-radio labelPlacement="end" value="unknown" color="success">Unknown</ion-radio><br />
+                    </ion-radio-group>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-button color="success" expand="block" (click)="showToast()">Apply filter</ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

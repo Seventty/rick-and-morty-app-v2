@@ -4,15 +4,35 @@
   border-radius: 1rem;
 }
 
-.character-card{
+.character-card {
   cursor: pointer;
   &:hover {
-  border: 1px solid #00FF00;
-  box-shadow: 0 0 10px 2px #00ff00;
-  transition: 0.2s ease-in-out;
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 10px 2px #00ff00;
+    transition: 0.2s ease-in-out;
   }
 }
 
 .character-name-text {
   font-size: 20px;
+}
+
+.searchbar {
+  border-radius: 1rem;
+}
+
+ion-button[shape="favorite"] {
+  --border-radius: 50%;
+  width: 46px;
+  height: 46px;
+}
+
+.favorite-button {
+  border-radius: 5px;
+  border: 1px solid #00ff008c;
+  box-shadow: 0 0 1px 1px #00ff008c;
+}
+
+.favorite-button-icon {
+  color: #00ff00;
 }

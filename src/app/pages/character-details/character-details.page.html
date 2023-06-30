@@ -35,8 +35,12 @@
                     <ion-col sizeMd="6" sizeXl="6" size="12">
                       <div class="badge-container">
                         <p><strong>Gender: </strong></p>
-                        <ion-badge [ngClass]="{'badge-pill': true, 'blue-pill': character?.gender === 'Male', 'pink-pill': character?.gender === 'Female', 'gray-pill': character?.gender === 'unknown'}" color="light">
-                          <div [ngClass]="{'circle': true, 'blue-circle': character?.gender === 'Male', 'pink-circle': character?.gender === 'Female', 'gray-circle': character?.gender === 'unknown'}"></div>
+                        <ion-badge
+                          [ngClass]="{'badge-pill': true, 'blue-pill': character?.gender === 'Male', 'pink-pill': character?.gender === 'Female', 'gray-pill': character?.gender === 'unknown', 'unknown-pill': character?.gender === 'Genderless'}"
+                          color="light">
+                          <div
+                            [ngClass]="{'circle': true, 'blue-circle': character?.gender === 'Male', 'pink-circle': character?.gender === 'Female', 'gray-circle': character?.gender === 'unknown', 'unknown-circle': character?.gender === 'Genderless'}">
+                          </div>
                           {{character?.gender}}
                         </ion-badge>
                       </div>
@@ -50,8 +54,12 @@
                     <ion-col sizeMd="6" sizeXl="6" size="12">
                       <div class="badge-container">
                         <p><strong>Status: </strong></p>
-                        <ion-badge [ngClass]="{'badge-pill': true, 'green-pill': character?.status === 'Alive', 'gray-pill': character?.status === 'Dead'}" color="light">
-                          <div [ngClass]="{'circle': true, 'green-circle': character?.status === 'Alive', 'gray-circle': character?.status === 'Dead'}"></div>
+                        <ion-badge
+                          [ngClass]="{'badge-pill': true, 'green-pill': character?.status === 'Alive', 'gray-pill': character?.status === 'Dead'}"
+                          color="light">
+                          <div
+                            [ngClass]="{'circle': true, 'green-circle': character?.status === 'Alive', 'gray-circle': character?.status === 'Dead'}">
+                          </div>
                           {{character?.status}}
                         </ion-badge>
                       </div>
@@ -62,15 +70,11 @@
                   </ion-row>
                 </ion-grid>
               </ion-card-content>
-
-
             </ion-card>
-
             <ion-card color="light">
               <ion-card-header>
                 <ion-card-title>Episode List</ion-card-title>
               </ion-card-header>
-
               <ion-card-content>
                 <ion-list class="list-container">
                   <ion-item *ngFor="let episode of characterEpisodes; let index">

@@ -10,6 +10,14 @@ const routes: Routes = [
     path: 'character/:id',
     loadChildren: () => import('./pages/character-details/character-details-routing.module').then( m => m.CharacterDetailsPageRoutingModule)
   },
+  {
+    path: 'favorites',
+    loadChildren: () => import('./pages/favorites/favorites.module').then( m => m.FavoritesPageModule)
+  },
+  {
+    path: 'filter',
+    loadChildren: () => import('./pages/filter/filter.module').then( m => m.FilterPageModule)
+  },
 ];
 
 @NgModule({
