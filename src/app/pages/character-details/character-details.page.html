@@ -11,45 +11,48 @@
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12" sizeLg="6" sizeXl="6" offsetLg="3" offsetXl="3" class="ion-padding">
-        <ion-card class="ion-text-center ion-padding-top">
-          <img class="character-image" alt="{{character?.name}} picture" src="{{character?.image}}" />
-          <ion-card-header>
+        <div *ngIf="!character" class="loading ion-text-center">
+          <ion-spinner name="crescent"></ion-spinner>
+        </div>
+        <ion-card class="ion-padding-top" *ngIf="character">
+          <div class="ion-text-center">
+            <img class="character-image" alt="{{character?.name}}" src="{{character?.image}}" />
+          </div>
+          <ion-card-header class="ion-text-center">
             <ion-card-title>{{character?.name}}</ion-card-title>
           </ion-card-header>
-
           <ion-card-content>
             <ion-card color="light">
               <ion-card-header>
                 <ion-card-title>About the character</ion-card-title>
               </ion-card-header>
-
               <ion-card-content>
                 <ion-grid>
                   <ion-row>
                     <ion-col sizeMd="6" sizeXl="6" size="12">
-                      <p><strong>Name</strong> {{character?.name}}</p>
+                      <p><strong>Name:</strong> {{character?.name}}</p>
                     </ion-col>
                     <ion-col sizeMd="6" sizeXl="6" size="12">
                       <div class="badge-container">
                         <p><strong>Gender: </strong></p>
-                        <ion-badge class="badge-pill" color="light">
-                          <div class="circle"></div>
-                          Gender
+                        <ion-badge [ngClass]="{'badge-pill': true, 'blue-pill': character?.gender === 'Male', 'pink-pill': character?.gender === 'Female', 'gray-pill': character?.gender === 'unknown'}" color="light">
+                          <div [ngClass]="{'circle': true, 'blue-circle': character?.gender === 'Male', 'pink-circle': character?.gender === 'Female', 'gray-circle': character?.gender === 'unknown'}"></div>
+                          {{character?.gender}}
                         </ion-badge>
                       </div>
                     </ion-col>
                     <ion-col sizeMd="6" sizeXl="6" size="12">
-                      <p><strong>First View</strong> {{character?.origin.name}}</p>
+                      <p><strong>First View:</strong> {{character?.origin.name}}</p>
                     </ion-col>
                     <ion-col sizeMd="6" sizeXl="6" size="12">
-                      <p><strong>Last View</strong> {{character?.location.name}}</p>
+                      <p><strong>Last View:</strong> {{character?.location.name}}</p>
                     </ion-col>
                     <ion-col sizeMd="6" sizeXl="6" size="12">
                       <div class="badge-container">
                         <p><strong>Status: </strong></p>
-                        <ion-badge class="badge-pill" color="light">
-                          <div class="circle"></div>
-                          Status
+                        <ion-badge [ngClass]="{'badge-pill': true, 'green-pill': character?.status === 'Alive', 'gray-pill': character?.status === 'Dead'}" color="light">
+                          <div [ngClass]="{'circle': true, 'green-circle': character?.status === 'Alive', 'gray-circle': character?.status === 'Dead'}"></div>
+                          {{character?.status}}
                         </ion-badge>
                       </div>
                     </ion-col>
@@ -77,26 +80,12 @@
                       <p><strong>Air Date:</strong> {{ episode.air_date }}</p>
                     </ion-label>
                   </ion-item>
-
                 </ion-list>
-                <!--
-                <ion-infinite-scroll threshold="25%" position="bottom" (ionInfinite)="getEpisode(episode)">
-                  <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading more characters...">
-                  </ion-infinite-scroll-content>
-                </ion-infinite-scroll> -->
               </ion-card-content>
-
             </ion-card>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <!-- <div class="ion-padding">
-    <div class="ion-padding-top" *ngIf="character">
-      <ion-avatar>
-        <img [src]="character.image" />
-      </ion-avatar>
-    </div>
-  </div> -->
 </ion-content>

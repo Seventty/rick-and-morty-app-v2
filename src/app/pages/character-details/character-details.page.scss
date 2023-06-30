@@ -11,13 +11,39 @@ ion-avatar {
   border-radius: 1rem;
 }
 
+.badge-container {
+  display: flex;
+  align-items: center;
+}
+
 .badge-pill {
   display: inline-flex;
   align-items: center;
   padding: 5px 10px;
+  margin-left: 2px;
   border-radius: 20px;
+  background-color: #fff;
+  color: #fff;
+}
+
+.blue-pill {
   background-color: #3a58748d;
   color: #2489e7;
+}
+
+.pink-pill {
+  background-color: #743a6a8d;
+  color: #e72496;
+}
+
+.gray-pill {
+  background-color: #5b5b5b70;
+  color: #8a8a8a;
+}
+
+.green-pill {
+  background-color: #5b5b5b70;
+  color: #24e75b;
 }
 
 .circle {
@@ -25,15 +51,29 @@ ion-avatar {
   height: 10px;
   border-radius: 50%;
   margin-right: 5px;
+  background-color: #fff;
+}
+
+.blue-circle {
   background-color: #2489e7;
 }
 
-.badge-container {
-  display: flex;
-  align-items: center;
+.pink-circle {
+  background-color: #e72496;
 }
 
+.gray-circle {
+  background-color: #202020;
+}
+
+.green-circle {
+  background-color: #24e75b;
+}
 
 .list-container {
   border-radius: 1rem;
+}
+
+.loading {
+  transform: scale(3);
 }

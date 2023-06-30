@@ -19,9 +19,9 @@ export class CharacterDetailsPage implements OnInit {
       next: (res: any) => {
         this.character = res;
         this.getEpisode();
+        console.log(res);
       },
       error: (err: any) => {
-        console.log(err)
       },
     })
   }
