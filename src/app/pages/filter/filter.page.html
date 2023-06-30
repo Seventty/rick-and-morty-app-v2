@@ -22,11 +22,11 @@
                 <ion-row>
                   <ion-col sizeMd="6" sizeXl="6" size="12" class="ion-padding">
                     <ion-card-subtitle class="ion-padding-bottom">By Gender</ion-card-subtitle>
-                    <ion-radio-group [allowEmptySelection]="true">
-                      <ion-radio labelPlacement="end" value="male" color="success">Male</ion-radio><br />
-                      <ion-radio labelPlacement="end" value="female" color="success">Female</ion-radio><br />
-                      <ion-radio labelPlacement="end" value="unknown" color="success">Unknown</ion-radio><br />
-                      <ion-radio labelPlacement="end" value="genderless" color="success">Genderless</ion-radio><br />
+                    <ion-radio-group [allowEmptySelection]="true" [formGroup]="genderFilter">
+                      <ion-radio labelPlacement="end" [value]="'male'" color="success" formControlName="genderOption">Male</ion-radio><br />
+                      <ion-radio labelPlacement="end" value="female" color="success" formControlName="genderOption">Female</ion-radio><br />
+                      <ion-radio labelPlacement="end" value="unknown" color="success" formControlName="genderOption">Unknown</ion-radio><br />
+                      <ion-radio labelPlacement="end" value="genderless" color="success" formControlName="genderOption">Genderless</ion-radio><br />
                     </ion-radio-group>
                   </ion-col>
                   <ion-col sizeMd="6" sizeXl="6" size="12" class="ion-padding">
@@ -47,7 +47,7 @@
                     </ion-radio-group>
                   </ion-col>
                   <ion-col size="12">
-                    <ion-button color="success" expand="block" (click)="showToast()">Apply filter</ion-button>
+                    <ion-button type="submit" color="success" expand="block" (click)="onSubmit()">Apply filter</ion-button>
                   </ion-col>
                 </ion-row>
               </ion-grid>

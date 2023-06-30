@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ToastController } from '@ionic/angular';
+import { RickAndMortyServiceService } from 'src/app/services/rick-and-morty/rick-and-morty-service.service';
 
 @Component({
   selector: 'app-filter',
@@ -8,19 +10,31 @@ import { ToastController } from '@ionic/angular';
 })
 export class FilterPage implements OnInit {
 
-  constructor(private toastController: ToastController) { }
-  async showToast(){
-    const toast = await this.toastController.create({
-      message: 'Filter applyed!',
-      duration: 1500,
-      position: 'bottom',
-      color: 'success',
-    });
+  genderFilter!: FormGroup;
 
-    await toast.present();
+ /*  speciesFilter = new FormGroup({
+    human: new FormControl(''),
+    alien: new FormControl(''),
+    animal: new FormControl(''),
+    unknown: new FormControl(''),
+  });
+
+  statusFilter = new FormGroup({
+    alive: new FormControl(''),
+    dead: new FormControl(''),
+    unknown: new FormControl(''),
+  }); */
+
+  constructor(private formBuilder: FormBuilder, private rickAndMortyService: RickAndMortyServiceService) { }
+
+  onSubmit(){
+    this.rickAndMortyService.showToast('Filter applyed!', 'success');
   }
-  ngOnInit() {
 
+  ngOnInit() {
+    this.genderFilter = this?.formBuilder.group({
+      genderOption: [''],
+    });
   }
 
 }

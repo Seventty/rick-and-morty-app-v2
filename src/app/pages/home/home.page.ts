@@ -42,10 +42,6 @@ export class HomePage implements OnInit {
     })
   }
 
-  ionViewWillEnter() {
-    console.log("En el primer componente")
-  }
-
   ngOnInit() {
     this.params.page = 0;
     this.getCharacter();

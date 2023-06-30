@@ -12,6 +12,8 @@ export class CharacterDetailsPage implements OnInit {
   characterId: string = ''
   character: any;
   characterEpisodes: Array<any> = [];
+  isFavorite: boolean = false;
+  favoriteCharacterList: any;
   constructor(private activatedRoute: ActivatedRoute, private rickAndMortyService: RickAndMortyServiceService) { }
 
   getCharacter() {
@@ -19,7 +21,7 @@ export class CharacterDetailsPage implements OnInit {
       next: (res: any) => {
         this.character = res;
         this.getEpisode();
-        console.log(res);
+        this.isFavoriteMethod(this.character);
       },
       error: (err: any) => {
       },
@@ -28,6 +30,24 @@ export class CharacterDetailsPage implements OnInit {
 
   ionViewWillEnter() {
     this.getCharacter();
+    this.rickAndMortyService.loadFavorites();
+  }
+
+  isFavoriteMethod(character: any){
+    this.favoriteCharacterList = this.rickAndMortyService.getFavoriteList();
+    const isFavoriteAlready = this.favoriteCharacterList.some((characterList: any) => characterList?.character?.id === character?.id);
+    this.isFavorite = isFavoriteAlready;
+  }
+
+  handleFavorites(){
+    if (this.isFavorite) {
+      this.isFavorite = false;
+      this.rickAndMortyService.setFavorite(this.character, this.isFavorite);
+    }else {
+      this.isFavorite = true;
+      this.rickAndMortyService.setFavorite(this.character, this.isFavorite);
+      this.rickAndMortyService.showToast('Added as favorite!', 'success');
+    }
   }
 
   getEpisode() {
@@ -35,23 +55,14 @@ export class CharacterDetailsPage implements OnInit {
       this.rickAndMortyService.getEpisode(episode).subscribe({
         next: (res: any) => {
           this.characterEpisodes.push(res);
-          console.log(res);
         },
         error: (err: any) => {
           console.log(err)
         },
       })
     });
-    /* this.rickAndMortyService.getEpisode(episode).subscribe({
-      next: (res: any) => {
-        this.characterEpisodes.push(res.results)
-        console.log(this.characterEpisodes)
-      },
-      error: (err: any) => {
-        console.log(err)
-      },
-    }) */
   }
+
   ngOnInit() {
     this.characterId = this.activatedRoute.snapshot.paramMap.get('id') as string
   }

@@ -20,6 +20,7 @@
           </div>
           <ion-card-header class="ion-text-center">
             <ion-card-title>{{character?.name}}</ion-card-title>
+            <div [ngClass]="{'heart': true, 'is-active': isFavorite}" (click)="handleFavorites()"></div>
           </ion-card-header>
           <ion-card-content>
             <ion-card color="light">
