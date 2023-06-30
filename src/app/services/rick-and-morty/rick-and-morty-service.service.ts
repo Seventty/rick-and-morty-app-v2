@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { ToastController } from '@ionic/angular';
 
@@ -9,11 +9,14 @@ import { ToastController } from '@ionic/angular';
 export class RickAndMortyServiceService {
 
   characterList: Array<any> = [];
+  filterOptions: any = {};
 
   constructor(private httpClient: HttpClient, private toastController: ToastController) { }
 
   getCharacter(params: any) {
-    return this.httpClient.get(environment.baseUrl + environment.characterUrl, { params });
+    const getExtraParams = this.getFilters();
+    const extraParams = {...params, ...getExtraParams}
+    return this.httpClient.get(environment.baseUrl + environment.characterUrl, { params: extraParams });
   }
 
   getCharacterById(id: string) {
@@ -44,8 +47,17 @@ export class RickAndMortyServiceService {
     this.characterList = favoritesJson ? JSON.parse(favoritesJson) : [];
   }
 
+  loadFilter(){
+    const filterOptions = localStorage.getItem('filterOptions');
+    this.filterOptions = filterOptions ? JSON.parse(filterOptions) : {};
+  }
+
   getFavoriteList() {
     return JSON.parse(localStorage.getItem('favorites') as string);
+  }
+
+  getFilters() {
+    return JSON.parse(localStorage.getItem('filterOptions') as any);
   }
 
 

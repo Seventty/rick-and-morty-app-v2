@@ -20,7 +20,6 @@ export class HomePage implements OnInit {
       },
 
       error: (err: any) => {
-        console.log(err)
       },
 
       complete: () => {
@@ -29,15 +28,18 @@ export class HomePage implements OnInit {
     })
   }
 
+  ionViewWillEnter() {
+    this.searchCharacter();
+  }
+
   searchCharacter(){
-    this.params.page = 1;
+    this.params.page = 0;
     this.rickAndMortyService.getCharacter(this.params).subscribe({
       next: (res: any) => {
         this.characters = res.results;
       },
 
       error: (err: any) => {
-        console.log(err)
       },
     })
   }

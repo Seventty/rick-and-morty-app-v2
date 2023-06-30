@@ -58,7 +58,6 @@ export class CharacterDetailsPage implements OnInit {
           this.characterEpisodes.push(res);
         },
         error: (err: any) => {
-          console.log(err)
         },
       })
     });
