@@ -43,10 +43,11 @@ export class CharacterDetailsPage implements OnInit {
     if (this.isFavorite) {
       this.isFavorite = false;
       this.rickAndMortyService.setFavorite(this.character, this.isFavorite);
+      this.rickAndMortyService.showToast('Removed from favorites!', 'danger');
     }else {
       this.isFavorite = true;
       this.rickAndMortyService.setFavorite(this.character, this.isFavorite);
-      this.rickAndMortyService.showToast('Added as favorite!', 'success');
+      this.rickAndMortyService.showToast('Added to favorites!', 'success');
     }
   }
 
