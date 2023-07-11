@@ -4,19 +4,6 @@
   border-radius: 1rem;
 }
 
-.character-card {
-  cursor: pointer;
-  &:hover {
-    border: 1px solid #00ff00;
-    box-shadow: 0 0 10px 2px #00ff00;
-    transition: 0.2s ease-in-out;
-  }
-}
-
-.character-name-text {
-  font-size: 20px;
-}
-
 .searchbar {
   border-radius: 1rem;
 }

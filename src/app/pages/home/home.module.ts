@@ -15,7 +15,7 @@ import { CharacterDetailsPageModule } from '../character-details/character-detai
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    CharacterDetailsPageModule
+    CharacterDetailsPageModule,
   ],
   declarations: [HomePage]
 })

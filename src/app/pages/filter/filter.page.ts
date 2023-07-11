@@ -13,19 +13,6 @@ export class FilterPage implements OnInit {
   characterFilter: FormGroup;
   filterFormValue: any;
 
- /*  speciesFilter = new FormGroup({
-    human: new FormControl(''),
-    alien: new FormControl(''),
-    animal: new FormControl(''),
-    unknown: new FormControl(''),
-  });
-
-  statusFilter = new FormGroup({
-    alive: new FormControl(''),
-    dead: new FormControl(''),
-    unknown: new FormControl(''),
-  }); */
-
   constructor(private formBuilder: FormBuilder, private rickAndMortyService: RickAndMortyServiceService) {
     this.characterFilter = this.formBuilder.group({
       gender: [''],
