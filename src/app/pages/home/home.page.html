@@ -23,14 +23,7 @@
   <ion-grid>
     <ion-row>
     <ion-col sizeLg="3" sizeMd="6" sizeSm="12" size="12" *ngFor="let character of characters" [routerLink]="['/character/' + character.id]">
-
-      <!-- <ion-card class="character-card">
-        <img id="fit-image" alt="ram-chars" src="{{character.image}}" />
-        <ion-card-content class="character-name-text ion-text-center">
-          {{character.name}}
-        </ion-card-content>
-      </ion-card> -->
-      <!-- !character component here -->
+      <character [characterData]="character"></character>
     </ion-col>
     </ion-row>
   </ion-grid>

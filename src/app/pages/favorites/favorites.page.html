@@ -20,12 +20,7 @@
     <ion-grid>
       <ion-row>
       <ion-col sizeLg="3" sizeMd="6" sizeSm="12" size="12" *ngFor="let characterObj of favoriteCharacterList" [routerLink]="['/character/' + characterObj?.character?.id]">
-        <ion-card class="character-card">
-          <img id="fit-image" alt="ram-chars" src="{{characterObj?.character?.image}}" />
-          <ion-card-content class="character-name-text ion-text-center">
-            {{characterObj?.character?.name}}
-          </ion-card-content>
-        </ion-card>
+        <character [characterData]="characterObj.character"></character>
       </ion-col>
       </ion-row>
     </ion-grid>

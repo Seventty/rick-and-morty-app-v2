@@ -15,6 +15,11 @@
           <ion-card-header class="ion-text-center">
             <ion-card-title>Search filter</ion-card-title>
           </ion-card-header>
+          <div class="button-container">
+            <ion-button (click)="resetForm()" color="danger" [routerLink]="['/']">
+              <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button>
+          </div>
           <ion-card-content>
             <ion-card-content>
               <form [formGroup]="characterFilter" (ngSubmit)="submitForm()">

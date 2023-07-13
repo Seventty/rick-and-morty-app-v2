@@ -13,8 +13,8 @@ export class FilterPage implements OnInit {
   characterFilter: FormGroup;
   filterFormValue: any;
 
-  constructor(private formBuilder: FormBuilder, private rickAndMortyService: RickAndMortyServiceService) {
-    this.characterFilter = this.formBuilder.group({
+  constructor(private fb: FormBuilder, private rickAndMortyService: RickAndMortyServiceService) {
+    this.characterFilter = this.fb.group({
       gender: [''],
       species: [''],
       status: [''],
@@ -35,7 +35,14 @@ export class FilterPage implements OnInit {
     this.rickAndMortyService.showToast('Filter applyed!', 'success');
   }
 
+  resetForm(){
+    this.rickAndMortyService.showToast('Filter wiped!', 'success');
+    this.characterFilter.reset();
+    localStorage.setItem('filterOptions', '{}');
+  }
+
   ngOnInit() {
+    console.log(this.characterFilter);
   }
 
 }

@@ -8,6 +8,8 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { CharacterDetailsPageModule } from '../character-details/character-details.module';
+import { ComponentsModule } from 'src/app/components/components.module';
+
 
 @NgModule({
   imports: [
@@ -16,6 +18,7 @@ import { CharacterDetailsPageModule } from '../character-details/character-detai
     IonicModule,
     HomePageRoutingModule,
     CharacterDetailsPageModule,
+    ComponentsModule
   ],
   declarations: [HomePage]
 })
